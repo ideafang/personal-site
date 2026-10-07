@@ -1,0 +1,33 @@
+{
+  "name": "personal-homepage",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "astro": "ASTRO_TELEMETRY_DISABLED=1 astro",
+    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "preview:workers": "WRANGLER_SEND_METRICS=false WRANGLER_LOG_PATH=.cache/wrangler/logs XDG_CONFIG_HOME=\"$PWD/.cache/config\" wrangler dev --local",
+    "check:workers": "WRANGLER_SEND_METRICS=false WRANGLER_LOG_PATH=.cache/wrangler/logs XDG_CONFIG_HOME=\"$PWD/.cache/config\" wrangler deploy --dry-run",
+    "deploy": "WRANGLER_SEND_METRICS=false WRANGLER_LOG_PATH=.cache/wrangler/logs XDG_CONFIG_HOME=\"$PWD/.cache/config\" wrangler deploy"
+  },
+  "dependencies": {
+    "astro": "^7.3.6"
+  },
+  "allowScripts": {
+    "esbuild": true
+  },
+  "devDependencies": {
+    "wrangler": "^4.148.0",
+    "@astrojs/check": "^0.9.0",
+    "typescript": "^5.9.0"
+  },
+  "private": true,
+  "overrides": {
+    "sharp": "0.35.5"
+  }
+}
