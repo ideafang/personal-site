@@ -1,6 +1,6 @@
 # Content publishing and deployment
 
-Last reviewed: 2026-10-07. Local foundation only; no remote repository or Cloudflare Worker has been created.
+Last reviewed: 2026-10-08. Local origin is configured to the user-supplied `git@github.com:ideafang/personal-site.git`. No push or repository-access check has been performed. Cloudflare is not connected or deployed.
 
 ## Local setup
 Use Node 22 (tested version in `.nvmrc`) and npm:
@@ -61,11 +61,11 @@ Do not add ignored outputs, tokens, .env, .dev.vars, .wrangler state, or SSH key
 ## One-time manual GitHub and Cloudflare setup
 The author performs these steps later:
 
-1. Create or choose a GitHub repository and provide its exact URL. Do not initialize a competing README/history if pushing this existing repo.
-2. Add that supplied remote and push `main` when authorized. No PAT or SSH changes are required by this project.
-3. In Cloudflare Dashboard, create/connect a Worker through Git integration and authorize access to that specific GitHub repository.
+1. The supplied GitHub repository is `ideafang/personal-site`; local `origin` uses its SSH URL. Ensure the local source reaches its `main` branch before importing it into Cloudflare.
+2. Push `main` when authorized (`git push -u origin main`). No push has been performed in this session. If the remote already has commits, inspect and reconcile history first; do not force-push. No PAT or SSH configuration changes are made by this project.
+3. In Cloudflare Dashboard: **Workers & Pages → Create application → Import a repository → Get started**. Authorize GitHub access to `ideafang/personal-site`, then select that repository. This is Workers Builds Git integration. For an existing Worker, use **Worker → Settings → Builds → Connect**.
 4. Confirm the actual Worker name. Make `wrangler.jsonc` name match the Dashboard Worker before the first production build. The initial proposed name is `personal-homepage`.
-5. Set the production branch and build configuration below. Confirm the successful build and generated workers.dev URL.
+5. Set the production branch and build configuration below, then choose **Save and Deploy** to start the first remote build/deployment. Confirm the successful build and generated workers.dev URL.
 6. Configure a custom domain later if desired, then supply its URL for Astro site metadata.
 
 | Setting | Value |
@@ -83,3 +83,5 @@ Workers Builds installs project dependencies before the build. The deploy script
 Author reviews content → local checks/build → local Git commit → authorized push to GitHub → Cloudflare Workers Builds → automatic deployment. Inspect the Cloudflare build logs and live site after release. A later Git revert and push can undo a content release. Local checks do not prove that account permissions, custom domains, or the first remote deployment work.
 
 Keep this document and README synchronized whenever publication or deployment commands change.
+
+Dashboard entry points verified against [Workers Builds official documentation](https://developers.cloudflare.com/workers/ci-cd/builds/) on 2026-10-08.

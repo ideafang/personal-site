@@ -1,6 +1,6 @@
 # Personal Homepage
 
-A static Astro website for Home, Research, Writing, and About. Writing uses Markdown and Astro Content Collections. Hosting target: Cloudflare Workers Static Assets, built automatically by Workers Builds from a future user-supplied GitHub repository.
+A static Astro website for Home, Research, Writing, and About. Writing uses Markdown and Astro Content Collections. Hosting target: Cloudflare Workers Static Assets, built automatically by Workers Builds from the user-supplied GitHub repository `ideafang/personal-site`.
 
 ## Develop
 
@@ -21,7 +21,7 @@ npm run preview:workers
 npm run check:workers
 ```
 
-`npm run deploy` is reserved for authorized deployment or Cloudflare Workers Builds; it has not been run during initialization. No account login or remote repository is configured.
+`npm run deploy` is reserved for authorized deployment or Cloudflare Workers Builds; it has not been run during initialization. Local `origin` is configured to `git@github.com:ideafang/personal-site.git`; no push or Cloudflare account login has been performed.
 
 ## Writing
 

@@ -28,7 +28,7 @@ Filename-derived collection ID determines `/writing/<id>/`; preserve published f
 `src/pages/writing/[...id].astro` uses the collection entry type and `render()` to render Markdown. Cover images use Astro's Image component. No taxonomy pages, pagination, search, or RSS are added yet.
 
 ## Source and deployment ownership
-Git/GitHub manages source. Cloudflare Workers Builds installs dependencies, builds Astro, and deploys static assets. GitHub Actions is not used. Account integration, production Worker name and domain await user decisions. `personal-homepage` in Wrangler is only a suggested name. Do not set Astro's `site` URL until a real public hostname is supplied; add canonical URLs and sitemap when that hostname is confirmed.
+Git/GitHub manages source. Cloudflare Workers Builds installs dependencies, builds Astro, and deploys static assets. GitHub Actions is not used. The user supplied GitHub repository `ideafang/personal-site` on 2026-10-08, and local `origin` is configured to its SSH URL. No push or access check has been performed. Cloudflare integration, production Worker name and domain await user decisions. `personal-homepage` in Wrangler is only a suggested name. Do not set Astro's `site` URL until a real public hostname is supplied; add canonical URLs and sitemap when that hostname is confirmed.
 
 ## Runtime and dependencies
 Use supported Node 22 (tested version in `.nvmrc`) and npm. The initial host was macOS, Node 22.20.0, npm 10.9.3, Git 2.54.0. A newer Node 22 was downloaded only under ignored `.cache/runtime` to work around create-astro's proxy flag requirement. Normal Astro commands are also verified with the system Node where possible. Ubuntu has not been accessed or tested.
